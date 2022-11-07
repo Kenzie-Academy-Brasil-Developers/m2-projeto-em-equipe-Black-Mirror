@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+ 
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+ }
+
+ :root{
+    --color-brand: #4E2096;
+    --color-green: #33CC66;
+    --color-red: #EA534A;
+    --color-grey: #F1EEF7;
+    --color-grey-2: #EEEEEE;
+    --color-grey-2: #90A4AE;
+    --color-white: #FFFFFF;
+    --color-black: #1B1C1E;
+    --color-purple: #B48CF2;
+
+    --font-family: 'Open Sans';
+
+    --font-size-0: 2.5rem; /*40px*/
+    --font-size-1: 2.25rem;/*36px*/
+    --font-size-2: 2rem; /*32px*/
+    --font-size-3: 1.875rem; /*30px*/
+    --font-size-4: 1.75rem; /*28px*/
+    --font-size-5: 1.375rem; /*22px*/
+    --font-size-6: 1.25rem; /*20px*/
+    --font-size-7: 1.125rem; /*18px*/
+    --font-size-8: 1rem; /*16px*/
+
+    --font-weight-1: 700;
+    --font-weight-2: 600;
+    --font-weight-3: 500;
+    --font-weight-4: 400;
+
+    --border-radius-1: 4px;
+    --border-radius-2: 8px;
+    --border-radius-3: 16px;
+}
+
+.container{
+    max-width: 1440px;
+    margin: 0 auto;
+}

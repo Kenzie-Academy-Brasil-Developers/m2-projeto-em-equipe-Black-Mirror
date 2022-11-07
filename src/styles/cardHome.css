@@ -29,16 +29,7 @@
       font-weight: var(--font-weight-2);
       font-size: var(--font-size-9);
   }
-  .card button{
-      background-color: var(--color-green);
-      color: var(--color-white);
-      cursor: pointer;
-      margin-left: 3.25rem;
-      margin-top: .75rem;
-      border: none;
-      width: 7.1875rem;
+  .btn-adopt{
       height: 1.75rem;
-      border-radius: var(--border-radius-3);
-      font-weight: var(--font-weight-2);
       display: none;
   }

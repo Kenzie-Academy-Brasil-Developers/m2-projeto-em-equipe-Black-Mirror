@@ -17,8 +17,9 @@
     --color-white: #FFFFFF;
     --color-black: #1B1C1E;
     --color-purple: #B48CF2;
+    --box-shadow-color: rgba(78, 32, 150, 0.25);
 
-    --font-family: 'Open Sans';
+    --font-family: 'Open Sans', sans-serif;
 
     --font-size-0: 2.5rem; /*40px*/
     --font-size-1: 2.25rem;/*36px*/

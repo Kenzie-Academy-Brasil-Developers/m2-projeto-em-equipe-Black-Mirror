@@ -1,0 +1,44 @@
+.list{
+    width: 60%;
+    gap: 1.875rem;
+    margin: 4.375rem auto;
+  }
+  .card{
+      width: 13.125rem;
+      height: 18.125rem;
+      box-shadow: 0rem 0rem .3125rem var(--box-shadow-color);
+      border-radius: var(--border-radius-2);
+  }
+  .card-img{
+      width: 100.5%;
+      height: 10.9375rem;
+      border-top-left-radius: var(--border-radius-2);
+      border-top-right-radius: var(--border-radius-2);;
+  }
+  .card-title{
+      color: var(--color-brand);
+      font-family: var(--font-family);
+      padding-bottom: .375rem;
+      padding-left: .9375rem;
+      padding-top: .3125rem;
+      font-size: var(--font-size-6);
+  }
+  .card p{
+      padding-left: .9375rem;
+      font-family: var(--font-family);
+      font-weight: var(--font-weight-2);
+      font-size: var(--font-size-9);
+  }
+  .card button{
+      background-color: var(--color-green);
+      color: var(--color-white);
+      cursor: pointer;
+      margin-left: 3.25rem;
+      margin-top: .75rem;
+      border: none;
+      width: 7.1875rem;
+      height: 1.75rem;
+      border-radius: var(--border-radius-3);
+      font-weight: var(--font-weight-2);
+      display: none;
+  }

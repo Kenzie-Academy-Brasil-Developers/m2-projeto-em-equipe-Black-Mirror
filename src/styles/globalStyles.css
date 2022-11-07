@@ -7,6 +7,8 @@
     list-style: none;
  }
 
+
+
  :root{
     --color-brand: #4E2096;
     --color-green: #33CC66;
@@ -45,3 +47,7 @@
     max-width: 1440px;
     margin: 0 auto;
 }
+
+ body{
+    font-family: var(--font-family);
+ }

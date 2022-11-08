@@ -1,3 +1,5 @@
+import { creatAdoption } from "./requests.js"
+
 const allPetsList = document.querySelector(".list")
 const userADM = await loginUser()
 
@@ -14,8 +16,9 @@ export async function renderCard() {
         const petimg = pets.avatar_url
         const petname = pets.name
         const petSpecies = pets.species
+        const petID     = pets.id
 
-        const card = createCard(petimg,petname,petSpecies)
+        const card = createCard(petimg,petname,petSpecies,petID)
         allPetsList.append(card)
 
     })
@@ -64,7 +67,7 @@ async function loginUser(){
     }
 }
 
-function createCard(img,name,species) {
+function createCard(img,name,species,id) {
 
     const cardContainer = document.createElement("li")
     const figCap = document.createElement("figcaption")
@@ -78,6 +81,11 @@ function createCard(img,name,species) {
     petName.classList = 'card-title'
     
    
+    btnAdopt.onclick = () => {
+        
+        creatAdoption(id,tokenStorage)
+        
+    }
     if(tokenStorage === null){
        
         btnAdopt.classList = 'button-green btn-adopt'

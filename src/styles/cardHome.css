@@ -1,7 +1,7 @@
 .list{
-    width: 60%;
-    gap: 1.875rem;
-    margin: 4.375rem auto;
+    width: 80%;
+    gap: 55px;
+    margin: 40px 150px;
   }
   .card{
       width: 13.125rem;
@@ -40,7 +40,5 @@
     display: block;
     height: 1.75rem;
     width: fit-content;
-    
-    /* margin-left: 45px;
-    margin-top: 8px; */
+    cursor: pointer;
   }

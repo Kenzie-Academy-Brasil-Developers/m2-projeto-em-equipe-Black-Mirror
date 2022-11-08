@@ -3,13 +3,43 @@ import { renderCard } from "../../scripts/renderCardHome.js";
 import {creatUser, loginUser} from "../../scripts/requests.js"
 
 
-
-
-
 const menuIcon = document.querySelector('#menuIcon')
 const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
 menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
 
+const tokenStorage = JSON.parse(localStorage.getItem("token"))
+
+function btnChange() {
+
+  const btnLogin = document.querySelector(".button-white")
+  const btnRegister = document.querySelector(".button-brand")
+
+  if(tokenStorage !== null){
+     
+    btnLogin.innerText = "Perfil"
+    btnRegister.innerText = "Logout"
+
+    if(btnLogin.innerText === "Perfil"){
+       
+      btnLogin.onclick = () => {
+        window.location.replace("../profile/index.html")
+      }
+    }
+    if(btnRegister.innerText === "Logout"){
+
+      btnRegister.onclick = () => {
+
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+
+        window.location.reload()
+      }
+    }
+  }
+   
+}
+
+btnChange()
 
 async function loginEvent(email, pass) {
     
@@ -31,16 +61,24 @@ async function loginEvent(email, pass) {
 function modRender() {
   const register = document.querySelector(".button-white");
 
-  register.addEventListener("click", () => {
-    modalBg(modalRegister());
-  });
+  if(register.innerText === "Register"){
 
+    register.addEventListener("click", () => {
+      modalBg(modalRegister());
+    });
+
+  }
 
   const login = document.querySelector(".button-brand");
 
-  login.addEventListener("click", () => {
+  if(register.innerText === "Login"){
+
+    login.addEventListener("click", () => {
     modalBg(modalLogin());
   });
+
+  }
+  
 
   
 }

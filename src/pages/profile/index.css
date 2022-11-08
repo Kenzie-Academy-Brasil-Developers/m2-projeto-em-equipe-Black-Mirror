@@ -4,6 +4,7 @@
 
 .ul-petsList-profile{
     margin-top: 50px;
+    margin-bottom: 100px;
     width: 1050px;
     gap: 64px;
 }
@@ -15,7 +16,7 @@
 }
 
 .img-petsList{
-    min-height: 100%;
+    width: 220px;
     border-radius: var(--border-radius-1);
 }
 
@@ -38,8 +39,12 @@
 }
 
 #button-brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 90px;
     margin-top: 10px;
+    cursor: pointer;
 }
 header{
     min-height: 2.5rem;

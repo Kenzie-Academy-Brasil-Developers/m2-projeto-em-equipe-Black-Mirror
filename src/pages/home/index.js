@@ -1,20 +1,84 @@
+import { modalBg } from "../../scripts/modal.js";
+import { renderCard } from "../../scripts/renderCardHome.js";
+import {creatUser, loginUser} from "../../scripts/requests.js"
+
+
 const menuIcon = document.querySelector('#menuIcon')
 const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
 menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
 
-import { modalBg } from "../../scripts/modal.js";
-import {creatUser} from "../../scripts/requests.js"
+const tokenStorage = JSON.parse(localStorage.getItem("token"))
+
+function btnChange() {
+
+  const btnLogin = document.querySelector(".button-white")
+  const btnRegister = document.querySelector(".button-brand")
+
+  if(tokenStorage !== null){
+     
+    btnLogin.innerText = "Perfil"
+    btnRegister.innerText = "Logout"
+
+    if(btnLogin.innerText === "Perfil"){
+       
+      btnLogin.onclick = () => {
+        window.location.replace("../profile/index.html")
+      }
+    }
+    if(btnRegister.innerText === "Logout"){
+
+      btnRegister.onclick = () => {
+
+        localStorage.removeItem("token")
+        localStorage.removeItem("user")
+
+        window.location.reload()
+      }
+    }
+  }
+   
+}
+
+btnChange()
+
+async function loginEvent(email, pass) {
+    
+  const user = await loginUser(email,pass)
+  let token  = user.token
+  const body = {
+    name: user.user.name,
+    email: user.user.email,
+    avatar_url: user.user.avatar_url,
+  }
+
+  localStorage.setItem("token" , JSON.stringify(token))
+  localStorage.setItem("user" , JSON.stringify(body))
+  window.location.reload()
+
+}
+
 
 function modRender() {
   const register = document.querySelector(".button-white");
-  register.addEventListener("click", () => {
-    modalBg(modalRegister());
-  });
+
+  if(register.innerText === "Register"){
+
+    register.addEventListener("click", () => {
+      modalBg(modalRegister());
+    });
+
+  }
 
   const login = document.querySelector(".button-brand");
-  login.addEventListener("click", () => {
+
+  if(login.innerText === "Login"){
+
+    login.addEventListener("click", () => {
     modalBg(modalLogin());
   });
+
+  }
+  
 
   
 }
@@ -43,17 +107,17 @@ function modalLogin() {
   login.type = "submit";
 
   const link = document.createElement("a");
-  link.innerText = `Clique aqui  `;
+  link.innerText = `Clique aqui`;
   link.classList = "link";
 
   const p = document.createElement("p");
 
   const p2 = document.createElement("span");
-  p2.innerText = `para se cadastrar`;
+  p2.innerText = ` para se cadastrar`;
 
   p.innerText = "Não tem cadastro? ";
-  link.appendChild(p2);
-  p.appendChild(link);
+  
+  p.append(link,p2);
   form.append(title, email, password, login, p);
 
   link.addEventListener("click", () => {
@@ -63,19 +127,16 @@ function modalLogin() {
     modalBg(modalRegister());
   });
 
-  
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (email.value !== "" && password.value !== "") {
-      
-        // email: email.value,
-        // password: password.value,
+
+      let emailReq = email.value
+      let passwordReq = password.value
      
-      console.log(body);
-    } else {
-      console.log("erro");
-    }
+      loginEvent(emailReq,passwordReq);
+
+    } 
   });
 
   return form;
@@ -122,11 +183,15 @@ function modalRegister() {
     modalBg(modalLogin());
   });
 
+  const p2 = document.createElement("span");
+  p2.innerText = ` para fazer Login`;
+
   const p = document.createElement("p");
 
   p.innerText = "Já tem cadastro? ";
-  p.appendChild(link);
+  p.append(link,p2);
   form.append(title, userName, email, password, userAvatar, register, p);
+
 
   form.addEventListener("submit",  async (e) => {
     e.preventDefault();
@@ -137,6 +202,7 @@ function modalRegister() {
         let avatarUrl = userAvatar.value
 
         await creatUser(name, emailReq, passwordReq, avatarUrl)
+
     }
   });
 
@@ -283,4 +349,6 @@ function alteratePetData() {
   return form
 }
 
-modRender();
+
+renderCard()
+modRender()

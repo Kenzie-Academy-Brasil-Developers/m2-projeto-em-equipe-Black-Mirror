@@ -221,9 +221,30 @@ function registerNewPet() {
   petName.name = "name";
   petName.placeholder = "Nome";
 
-  const breed = document.createElement("input");
+  const breed = document.createElement("select");
   breed.name = "breed";
+  breed.classList = "select-breed"
   breed.placeholder = "Raça";
+
+  const option0 = document.createElement("option")
+  option0.innerText = "Selecione a espécie"
+  option0.selected;
+  option0.disabled;
+
+  const option1 = document.createElement("option")
+  option1.innerText = "Cachorro"
+
+  const option2 = document.createElement("option")
+  option2.innerText = "Gato"
+
+  const option3 = document.createElement("option")
+  option3.innerText = "Repteis"
+
+
+  const option4 = document.createElement("option")
+  option4.innerText = "Outros"
+
+  breed.append(option0, option1, option2, option3, option4)
 
   const petAvatar = document.createElement("input");
   petAvatar.name = "avatar";

@@ -76,18 +76,18 @@
   color: var(--color-purple);
 }
 
-.form-general button{
+/* .form-general button{
   margin-top: 10px;
   border-radius: var(--border-radius-3);
   background-color: var(--color-brand);
   color: var(--color-white);
   font-size: var(--font-size-6);
   padding: 10px 0;
-}
+} */
 
-.form-general button:hover{
+/* .form-general button:hover{
   cursor: pointer;
-}
+} */
 
 .form-general input{
   border: 1px solid var(--color-purple);

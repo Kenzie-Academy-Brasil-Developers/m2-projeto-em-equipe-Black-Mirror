@@ -7,17 +7,33 @@
     <title>Kenzie Pets - Perfil</title>
     <link rel="stylesheet" href="../../styles/globalStyles.css">
     <link rel="stylesheet" href="../../styles/displays.css">
+    <link rel="stylesheet" href="../../styles/button.css">
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <main class="main container">
+  <header class="flex column align-center">
+    <div id="headerMenu" class="flex space-between align-center"> 
+        <h1 id="logo">KenziePets</h1>
+        <img id="menuIcon" src="../../img/menuIcon.svg" alt="">
+        <div id="headerBtns">
+            <button class="button-white">Register</button>
+            <button class="button-brand">Login</button>
+        </div>
+    </div>
+    <div id="headerBtnsMobile" class="hide">
+        <button class="button-white">Register</button>
+        <button class="button-brand">Login</button>
+    </div>
+  </header>
+    <main main class="main container">
       <section class="section-petsList-profile flex column align-center relative">
           <button id="button-green" class="button-green absolute">Cadastrar novo pet</button>
         <ul class="ul-petsList-profile flex wrap">
         </ul>
       </section>
     </main>
-    
+    <footer class="flex justify-center align-center">KenziePets | Todos os Direitos Reservados</footer>
+
 
     <script type="module" src="./index.js"></script>
 </body>

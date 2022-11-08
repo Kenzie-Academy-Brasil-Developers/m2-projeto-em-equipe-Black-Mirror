@@ -5,6 +5,9 @@ function creatCards(name, species, img){
     let liList = document.createElement("li")
     liList.classList.add("li-petsList-profile", "flex", "align-center")
 
+    let figure = document.createElement("figure")
+    figure.classList.add("figure-profile")
+
     let imgList = document.createElement("img")
     imgList.classList.add("img-petsList")
     imgList.src = `${img}`
@@ -25,8 +28,9 @@ function creatCards(name, species, img){
     buttonUpdate.id = "button-brand"
     buttonUpdate.innerHTML = "Atualizar"
 
+    figure.appendChild(imgList)
     divDescription.append(spanName, spanSpecies, buttonUpdate)
-    liList.append(imgList, divDescription)
+    liList.append(figure, divDescription)
     ulList.append(liList)
 }
 

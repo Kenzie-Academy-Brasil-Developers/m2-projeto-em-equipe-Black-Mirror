@@ -10,4 +10,8 @@
 .flex-start{justify-content: flex-start;}
 .align-center{align-items: center;}
 .justify-center{justify-content: center;}
+
+.relative{position: relative;}
+.absolute{position: absolute;}
+
 .text-center{text-align: center;}

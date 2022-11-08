@@ -1,6 +1,10 @@
 const allPetsList = document.querySelector(".list")
 const userADM = await loginUser()
 
+const tokenStorage = JSON.parse(localStorage.getItem("token"))
+
+
+
 export async function renderCard() {
 
     const allPets = await readAllPets(userADM.token)
@@ -15,8 +19,7 @@ export async function renderCard() {
         allPetsList.append(card)
 
     })
-    
-
+   
 }
 
 async function readAllPets(token) {
@@ -70,11 +73,21 @@ function createCard(img,name,species) {
     const petSpecies = document.createElement("p")
     const btnAdopt = document.createElement("button")
 
-    cardContainer.classList = 'card'
+    cardContainer.classList = 'card flex column'
     petImg.classList = 'card-img'
     petName.classList = 'card-title'
-    btnAdopt.classList = 'button-green'
-    btnAdopt.id        = 'btn-adopt'
+    
+   
+    if(tokenStorage === null){
+       
+        btnAdopt.classList = 'button-green btn-adopt'
+
+    }else{
+
+        btnAdopt.classList = "button-green btn-on align-self-center"
+       
+
+    }
 
     petImg.src = img
     petName.innerText = name

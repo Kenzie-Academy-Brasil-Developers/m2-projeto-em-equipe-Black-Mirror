@@ -1,14 +1,31 @@
 import { modalBg } from "../../scripts/modal.js";
 import { renderCard } from "../../scripts/renderCardHome.js";
-import {creatUser} from "../../scripts/requests.js"
+import {creatUser, loginUser} from "../../scripts/requests.js"
 
-function modRender() 
+
+
+
 
 const menuIcon = document.querySelector('#menuIcon')
 const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
 menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
 
 
+async function loginEvent(email, pass) {
+    
+  const user = await loginUser(email,pass)
+  let token  = user.token
+  const body = {
+    name: user.user.name,
+    email: user.user.email,
+    avatar_url: user.user.avatar_url,
+  }
+
+  localStorage.setItem("token" , JSON.stringify(token))
+  localStorage.setItem("user" , JSON.stringify(body))
+  window.location.reload()
+
+}
 
 
 function modRender() {
@@ -52,17 +69,17 @@ function modalLogin() {
   login.type = "submit";
 
   const link = document.createElement("a");
-  link.innerText = `Clique aqui  `;
+  link.innerText = `Clique aqui`;
   link.classList = "link";
 
   const p = document.createElement("p");
 
   const p2 = document.createElement("span");
-  p2.innerText = `para se cadastrar`;
+  p2.innerText = ` para se cadastrar`;
 
   p.innerText = "Não tem cadastro? ";
-  link.appendChild(p2);
-  p.appendChild(link);
+  
+  p.append(link,p2);
   form.append(title, email, password, login, p);
 
   link.addEventListener("click", () => {
@@ -76,14 +93,12 @@ function modalLogin() {
     e.preventDefault();
     if (email.value !== "" && password.value !== "") {
 
-      
-        // email: email.value,
-        // password: password.value,
+      let emailReq = email.value
+      let passwordReq = password.value
      
-      console.log(body);
-    } else {
-      console.log("erro");
-    }
+      loginEvent(emailReq,passwordReq);
+
+    } 
   });
 
   return form;
@@ -130,10 +145,13 @@ function modalRegister() {
     modalBg(modalLogin());
   });
 
+  const p2 = document.createElement("span");
+  p2.innerText = ` para fazer Login`;
+
   const p = document.createElement("p");
 
   p.innerText = "Já tem cadastro? ";
-  p.appendChild(link);
+  p.append(link,p2);
   form.append(title, userName, email, password, userAvatar, register, p);
 
 

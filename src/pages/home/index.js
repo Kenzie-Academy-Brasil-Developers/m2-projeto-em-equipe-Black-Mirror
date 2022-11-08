@@ -1,13 +1,26 @@
 import { modalBg } from "../../scripts/modal.js";
 import { renderCard } from "../../scripts/renderCardHome.js";
+import {creatUser} from "../../scripts/requests.js"
+
+function modRender() 
+
+const menuIcon = document.querySelector('#menuIcon')
+const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
+menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
+
+
+
 
 function modRender() {
-  // const register = document.querySelector("");
+  const register = document.querySelector(".button-white");
+
   register.addEventListener("click", () => {
     modalBg(modalRegister());
   });
 
-  // const login = document.querySelector("");
+
+  const login = document.querySelector(".button-brand");
+
   login.addEventListener("click", () => {
     modalBg(modalLogin());
   });
@@ -59,15 +72,14 @@ function modalLogin() {
     modalBg(modalRegister());
   });
 
-  let body = {};
-
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (email.value !== "" && password.value !== "") {
-      body = {
-        email: email.value,
-        password: password.value,
-      };
+
+      
+        // email: email.value,
+        // password: password.value,
+     
       console.log(body);
     } else {
       console.log("erro");
@@ -124,20 +136,17 @@ function modalRegister() {
   p.appendChild(link);
   form.append(title, userName, email, password, userAvatar, register, p);
 
-  let body = {};
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit",  async (e) => {
     e.preventDefault();
     if (userName.value !== "" && email.value !== "" && password.value !== "") {
-      body = {
-        name: userName.value,
-        email: email.value,
-        password: password.value,
-        avatar_url: userAvatar.value,
-      };
-      console.log(body);
-    } else {
-      console.log("erro");
+        let name = userName.value
+        let emailReq = email.value
+        let passwordReq = password.value
+        let avatarUrl = userAvatar.value
+
+        await creatUser(name, emailReq, passwordReq, avatarUrl)
+
     }
   });
 
@@ -262,5 +271,6 @@ function alteratePetData() {
   return form
 }
 
+
 renderCard()
-modRender();
+modRender()

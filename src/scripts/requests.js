@@ -186,7 +186,7 @@ async function readAllMyPets(token){
             method: 'GET',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token.token}`
+                Authorization: `Bearer ${token}`
             }
         })
 

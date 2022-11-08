@@ -1,4 +1,5 @@
-function creatCards(name, species, adopter, img){
+function creatCards(name, species, img){
+
     const ulList = document.querySelector(".ul-petsList-profile")
 
     let liList = document.createElement("li")
@@ -19,20 +20,16 @@ function creatCards(name, species, adopter, img){
     spanSpecies.classList.add("span-description-petsList")
     spanSpecies.innerHTML = `<strong>Espécie:</strong> ${species}`
 
-    let spanAdopter = document.createElement("span")
-    spanAdopter.classList.add("span-description-petsList")
-    spanAdopter.innerHTML = `<strong>Adotável:</strong> ${adopter}`
-
     let buttonUpdate = document.createElement("button")
     buttonUpdate.classList.add("button-brand")
     buttonUpdate.id = "button-brand"
     buttonUpdate.innerHTML = "Atualizar"
 
-    divDescription.append(spanName, spanSpecies, spanAdopter, buttonUpdate)
+    divDescription.append(spanName, spanSpecies, buttonUpdate)
     liList.append(imgList, divDescription)
     ulList.append(liList)
 }
 
 export {
-    creatCards
+    creatCards,
 }

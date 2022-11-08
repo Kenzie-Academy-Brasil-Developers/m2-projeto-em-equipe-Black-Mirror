@@ -30,12 +30,13 @@
 
 .profile-personal-data {
    width: 35%;
+   min-width: 350px;
    background-color: var(--color-white);
    box-shadow: 0px 0px 5px rgba(78, 32, 150, 0.25);
    border-radius: 4px;
    padding: 24px;
    gap: 8px;
-   margin-bottom: 96px;
+   margin-bottom: 66px;
 }
 
 .name-container {

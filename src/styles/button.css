@@ -4,6 +4,7 @@ button{
     border-radius: var(--border-radius-3);
     height: 2rem;
     padding: 0rem 1.5rem;
+    cursor: pointer;
 }
 .button-brand{
     background-color: var(--color-brand);

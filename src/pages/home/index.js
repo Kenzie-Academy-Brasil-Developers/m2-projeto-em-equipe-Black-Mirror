@@ -71,7 +71,7 @@ function modRender() {
 
   const login = document.querySelector(".button-brand");
 
-  if(register.innerText === "Login"){
+  if(login.innerText === "Login"){
 
     login.addEventListener("click", () => {
     modalBg(modalLogin());

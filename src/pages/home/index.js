@@ -64,7 +64,7 @@ function modalLogin() {
   password.placeholder = "Senha";
 
   const login = document.createElement("button");
-  login.classList = "text-center";
+  login.classList = "text-center button-brand";
   login.innerText = "Entrar";
   login.type = "submit";
 
@@ -131,7 +131,7 @@ function modalRegister() {
   userAvatar.placeholder = "Avatar?";
 
   const register = document.createElement("button");
-  register.classList = "text-center";
+  register.classList = "text-center button-brand";
   register.innerText = "Cadastrar";
   register.type = "submit";
 
@@ -177,10 +177,10 @@ function modalDeleteAcc() {
 
   const title = document.createElement("h2");
   title.innerText = "Deseja mesmo deletar sua conta?";
-  title.classList = "flex align-center justify-center";
+  title.classList = "text-center";
 
   const cancel = document.createElement("button");
-  cancel.classList = "text-center";
+  cancel.classList = "text-center button-brand";
   cancel.innerText = "Não desejo deletar minha conta";
   cancel.type = "button";
   cancel.addEventListener("click", (e) => {
@@ -188,6 +188,7 @@ function modalDeleteAcc() {
   });
 
   const deleteAcc = document.createElement("button");
+  deleteAcc.classList = "button-white"
   deleteAcc.innerText = "Quero deletar minha conta";
   deleteAcc.addEventListener("click", () => {
     // requisição
@@ -225,7 +226,7 @@ function alterateUserData() {
   userAvatar.placeholder = "Avatar";
 
   const alterate = document.createElement("button");
-  alterate.classList = "text-center";
+  alterate.classList = "text-center button-brand";
   alterate.innerText = "Atualizar";
   alterate.type = "submit";
 
@@ -257,7 +258,7 @@ function registerNewPet() {
   petAvatar.placeholder = "Avatar";
 
   const registerPet = document.createElement("button");
-  registerPet.classList = "text-center";
+  registerPet.classList = "text-center button-brand";
   registerPet.innerText = "Cadastrar";
   registerPet.type = "submit";
 
@@ -281,7 +282,7 @@ function alteratePetData() {
   newPetAvatar.placeholder = "Avatar";
 
   const registerPet = document.createElement("button");
-  registerPet.classList = "text-center";
+  registerPet.classList = "text-center button-brand";
   registerPet.innerText = "Atualizar";
   registerPet.type = "submit";
 

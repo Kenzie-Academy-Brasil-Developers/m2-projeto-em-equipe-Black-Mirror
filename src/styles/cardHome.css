@@ -42,3 +42,13 @@
     width: fit-content;
     cursor: pointer;
   }
+
+  @media(max-width: 720px){
+    .list{
+        width: 80%;
+        gap: 55px;
+        margin: 40px ;
+        margin-left: 85px;
+        margin-right: 10px;
+      }
+}

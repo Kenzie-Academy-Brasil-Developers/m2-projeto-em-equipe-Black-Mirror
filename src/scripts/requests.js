@@ -1,6 +1,9 @@
+import { modalLogin } from "../pages/home/index.js"
+import { modalBg } from "./modal.js"
+import { toast } from "./toastfy.js"
+
 async function creatUser(name, email, password, avatarUrl){
     try{
-
         const data = {
             name: `${name}`,
             email: `${email}`,
@@ -18,8 +21,35 @@ async function creatUser(name, email, password, avatarUrl){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/users", options)
         const response = await responseJson.json()
-        console.log(response);
-        return response
+       
+        if(!response.message){
+
+            const toastfy = toast("sucess", "Cadastro Feito com Sucesso")
+            const main = document.querySelector("main")
+            const section = document.querySelector(".modal-bg")
+
+            main.append(toastfy)
+            toastfy.showModal()
+
+            console.log(response)
+            section.remove()
+            modalBg(modalLogin())
+            setTimeout(() => {
+                toastfy.close()
+            },2500)
+            return response
+            
+        }else {
+           const toastfy = toast("failure", response.message)
+           const main = document.querySelector("main")
+           
+           main.append(toastfy)
+           toastfy.showModal()
+
+           setTimeout(() => {
+            toastfy.close()
+           },2500)
+        }
 
     } catch(error){
        return error
@@ -43,7 +73,28 @@ async function loginUser(email, password){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/session/login", options)
         const response = await responseJson.json()
-        return response
+
+        if(!response.message){
+
+            return response
+
+        }else {
+            
+            const toastfy = toast("failure", response.message)
+            const main = document.querySelector("main")
+                
+            main.append(toastfy)
+            toastfy.showModal()
+     
+            setTimeout(() => {
+                toastfy.close()
+            },2500)
+            
+            return response
+            
+
+        }
+        
 
     } catch(error){
         return error
@@ -263,7 +314,35 @@ async function creatAdoption(petId, token){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/adoptions", options)
         const response = await responseJson.json()
-        return response
+        
+        if(!response.message){
+
+            const toastfy = toast("sucess", "Pet Adotado com Sucesso")
+            const main = document.querySelector("main")
+
+            main.append(toastfy)
+            toastfy.showModal()
+
+            console.log(response)
+            setTimeout(() => {
+                toastfy.close()
+            },2500)
+            return response
+
+
+        }else {
+            const toastfy = toast("failure", response.message)
+            const main = document.querySelector("main")
+            
+            main.append(toastfy)
+            toastfy.showModal()
+ 
+            setTimeout(() => {
+             toastfy.close()
+            },1200)
+
+        }
+        
 
     } catch(error){
         return error

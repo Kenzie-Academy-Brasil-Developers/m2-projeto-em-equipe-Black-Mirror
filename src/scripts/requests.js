@@ -1,6 +1,5 @@
 async function creatUser(name, email, password, avatarUrl){
     try{
-
         const data = {
             name: `${name}`,
             email: `${email}`,
@@ -18,7 +17,6 @@ async function creatUser(name, email, password, avatarUrl){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/users", options)
         const response = await responseJson.json()
-        console.log(response);
         return response
 
     } catch(error){
@@ -186,7 +184,7 @@ async function readAllMyPets(token){
             method: 'GET',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token.token}`
             }
         })
 

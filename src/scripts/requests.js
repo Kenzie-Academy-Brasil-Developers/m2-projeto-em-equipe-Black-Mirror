@@ -174,6 +174,7 @@ async function deleteProfile(token){
         })
 
         const response = await dataJson.json()
+        console.log(response)
         return response
 
     } catch(error){

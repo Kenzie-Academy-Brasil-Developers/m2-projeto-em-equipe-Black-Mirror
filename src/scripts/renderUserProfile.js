@@ -135,7 +135,9 @@ function alterateUserData() {
         };
 
         localStorage.setItem("user", JSON.stringify(body));
-        window.location.reload();
+        setTimeout(()=> {
+          window.location.reload();
+        },2900)
       }
     }
   });

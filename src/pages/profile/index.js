@@ -36,7 +36,7 @@ async function getApi() {
   const localData = JSON.parse(localStorage.getItem("token"));
   const readMyPets = await readAllMyPets(localData);
   readMyPets.forEach((element) => {
-    // console.log(element.id);
+   
     creatCards(element.name, element.species, element.avatar_url, element.id);
   });
 }
@@ -103,7 +103,9 @@ function registerNewPet() {
       petAvatarReq !== ""
     ) {
       await creatPet(petNameReq, bread, breedReq, petAvatarReq, token);
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      },2900)
     }
   });
 

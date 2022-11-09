@@ -12,37 +12,42 @@
 }
 
 .li-petsList-profile{
-    max-width: 385px;
-    height: max-content;
-    border: 2px solid rgba(128, 128, 128, 0.164);
-    border-radius: var(--border-radius-1);
+    display: flex;
+    width: 340px;
+    height: fit-content;
+    gap: 32px;
+    box-shadow: 0px 0px 5px var(--box-shadow-color);
 }
 
 .figure-profile{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 175px;
-    max-width: 200px;
+    width: 40%;
+    height: 160px;
+    border-radius: var(--border-radius-1);
     overflow: hidden;
 }
 
 .img-petsList{
-    width: 100%;
-    height: 175px;
-    max-height: 100%;
-    border-radius: var(--border-radius-1);
+    border-radius: unset;
+    width: 250px;
 }
 
 .box-description-petsList{
-    padding: 20px;
-    min-width: 100px;
-    margin-left: 30px;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+    gap: 8px;
 }
 
 .span-description-petsList{
     font-family: var(--font-family);
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .span-description-petsList strong{

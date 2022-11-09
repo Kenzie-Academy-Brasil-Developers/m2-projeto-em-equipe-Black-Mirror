@@ -1,6 +1,7 @@
 import { modalBg } from "../../scripts/modal.js";
 import { renderCard } from "../../scripts/renderCardHome.js";
 import {creatUser, loginUser} from "../../scripts/requests.js"
+import { toast } from "../../scripts/toastfy.js";
 
 
 const menuIcon = document.querySelector('#menuIcon')
@@ -51,9 +52,17 @@ async function loginEvent(email, pass) {
     avatar_url: user.user.avatar_url,
   }
 
+  const toastfy = toast("sucess", "Login Feito com Sucesso")
+  const main = document.querySelector("main")
+  const section = document.querySelector(".modal-bg")
+
+  main.append(toastfy)
+  toastfy.showModal()
   localStorage.setItem("token" , JSON.stringify(token))
   localStorage.setItem("user" , JSON.stringify(body))
-  window.location.reload()
+  setTimeout(() => {
+    window.location.reload()
+  },2000)
 
 }
 
@@ -83,7 +92,7 @@ function modRender() {
   
 }
 
-function modalLogin() {
+export function modalLogin() {
   const form = document.createElement("form");
   form.classList = "flex column form-general";
 

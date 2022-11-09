@@ -70,13 +70,14 @@ async function loginUser(){
 function createCard(img,name,species,id) {
 
     const cardContainer = document.createElement("li")
-    const figCap = document.createElement("figcaption")
+    const figCap = document.createElement("figure")
     const petImg = document.createElement("img")
     const petName = document.createElement("h2")
     const petSpecies = document.createElement("p")
     const btnAdopt = document.createElement("button")
 
     cardContainer.classList = 'card flex column'
+    figCap.classList  = 'card-figure'
     petImg.classList = 'card-img'
     petName.classList = 'card-title'
     

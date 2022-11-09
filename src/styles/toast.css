@@ -1,0 +1,48 @@
+.sucess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-green);
+    color: var(--color-grey);
+    border-radius: var(--border-radius-3);
+    width: 28%;
+    height: 10vh;
+    border: none;
+    animation: appear 3000ms ease-in forwards;
+    padding: 10px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 21px;
+ }
+
+ .failure{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: var(--color-red);
+     color: var(--color-grey);
+     border-radius: var(--border-radius-3);
+     width: 28%;
+     height: 10vh;
+     border: none;
+     animation: appear 3000ms ease-in forwards;
+     padding: 10px;
+     margin-top: 5px;
+     margin-left: 5px;
+     font-size: 21px;
+ }
+
+ @keyframes appear{
+    0%{
+        transform: translateY(-100%);
+    }
+    40% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}

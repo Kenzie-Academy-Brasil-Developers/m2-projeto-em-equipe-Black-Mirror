@@ -1,0 +1,51 @@
+button{
+    font-family: 'Opens Sans', sans-serif;
+    font-weight: var(--font-weight-2);
+    border-radius: var(--border-radius-3);
+    height: 2rem;
+    padding: 0rem 1.5rem;
+    cursor: pointer;
+}
+.button-brand{
+    background-color: var(--color-brand);
+    border: solid 1px var(--color-brand);
+    color: var(--color-white);
+    transition: 0.3s ease-in-out;
+}
+
+.button-brand:hover{
+    background-color: #3b1874;
+}
+
+.button-white{
+    background-color: var(--color-white);
+    border: solid 1px var(--color-brand);
+    color: var(--color-brand);
+    transition: 0.3s ease-in-out;
+}
+
+.button-white:hover{
+    background-color: rgba(128, 128, 128, 0.096);
+}
+
+.button-green{
+    background-color: var(--color-green);
+    border: solid 1px var(--color-green);
+    color: var(--color-white);
+    transition: 0.3s ease-in-out;
+}
+
+.button-green:hover{
+    background-color: #2baa55;
+}
+
+.button-red{
+    background-color: var(--color-white);
+    border: solid 1px var(--color-red);
+    color: var(--color-red);
+    transition: 0.3s ease-in-out;
+}
+
+.button-red:hover{
+    background-color: rgba(128, 128, 128, 0.096);
+}

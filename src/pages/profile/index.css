@@ -1,0 +1,122 @@
+.section-petsList-profile{
+    margin-top: 10px;
+}
+
+.ul-petsList-profile{
+    justify-content: center;
+    margin-top: 70px;
+    margin-bottom: 100px;
+    max-width: 1050px;
+    gap: 64px;
+    padding: 0px 10px 0px 10px;
+}
+
+.li-petsList-profile{
+    display: flex;
+    width: 340px;
+    height: fit-content;
+    gap: 32px;
+    box-shadow: 0px 0px 5px var(--box-shadow-color);
+    transition: ease 0.3s;
+}
+
+.li-petsList-profile:hover {
+    transform: scale(1.05);
+}
+
+.figure-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 160px;
+    border-radius: var(--border-radius-1);
+    overflow: hidden;
+}
+
+.img-petsList{
+    border-radius: unset;
+    width: 250px;
+}
+
+.box-description-petsList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 45%;
+    gap: 8px;
+}
+
+.span-description-petsList{
+    font-family: var(--font-family);
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.span-description-petsList strong{
+    color: var(--color-brand);
+    font-family: var(--font-family);
+}
+
+#button-green{
+    margin-left: 1rem;
+}
+
+#button-brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+header{
+    min-height: 2.5rem;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: solid 1px #EEEEEE;
+}
+#headerMenu{
+    width:100% ;
+}
+#logo{
+    color: var(--color-brand);
+    font-family: var(--font-family);
+}
+#menuIcon{
+    cursor: pointer;
+}
+#headerBtns{
+    display: none;
+}
+#headerBtnsMobile{
+    gap: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+footer{
+    color: var(--color-brand);
+    font-weight: var(--font-weight-4);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    bottom: 0;
+    background-color: #F1EEF7;
+}
+@media(min-width: 720px){
+    #menuIcon{
+        display: none;
+    }
+    #headerBtns{
+        display: flex;
+        gap: 1rem;
+    }
+    #headerBtnsMobile{
+        display: none;
+        gap: 1rem;
+    }
+}

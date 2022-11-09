@@ -41,6 +41,10 @@
   width: 100%;
 }
 
+.close-button img{
+  transition: ease 0.3s;
+}
+
 .close-button img:hover{
   cursor: pointer;
   background-color: red;
@@ -94,6 +98,7 @@
 .link{
   color: var(--color-brand);
   text-decoration: underline;
+  transition: ease 0.3s;
 }
 
 .link:hover{

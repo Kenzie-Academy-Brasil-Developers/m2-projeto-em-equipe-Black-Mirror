@@ -13,6 +13,11 @@
       box-shadow: 0rem 0rem .3125rem var(--box-shadow-color);
       border-radius: var(--border-radius-2);
       gap: .375rem;
+      transition: ease 0.3s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
   }
 
   .card-figure{

@@ -1,29 +1,48 @@
 .list{
-    width: 80%;
-    gap: 55px;
-    margin: 40px 150px;
+    width: 100%;
+    gap: 65px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
   }
+
   .card{
-      width: 13.125rem;
-      height: 18.125rem;
+      width: 250px;
+      height: 320px;
       box-shadow: 0rem 0rem .3125rem var(--box-shadow-color);
       border-radius: var(--border-radius-2);
       gap: .375rem;
   }
+
+  .card-figure{
+       width: 250px;
+       height: 200px;
+       overflow: hidden;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+  }
+
   .card-img{
-      width: 100.5%;
-      height: 10.9375rem;
+      height: 330px;
       border-top-left-radius: var(--border-radius-1);
       border-top-right-radius: var(--border-radius-1);
       border-bottom-left-radius: var(--border-radius-1);
       border-bottom-right-radius:var(--border-radius-1) ;
   }
+
   .card-title{
       color: var(--color-brand);
       font-family: var(--font-family);
       padding-left: .9375rem;
-      padding-top: .3125rem;
       font-size: var(--font-size-6);
+      height: 40px;
+      line-height: 2;
+      word-break: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box; 
+      -webkit-box-orient: vertical;
   }
   .card p{
       padding-left: .9375rem;
@@ -41,4 +60,14 @@
     height: 1.75rem;
     width: fit-content;
     cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 15px;
   }
+
+  @media(max-width: 720px){
+    .list{
+        width: 80%;
+        gap: 55px;
+        margin: 40px ;
+      }
+}

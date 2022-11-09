@@ -1,7 +1,7 @@
 .modal-bg{
   width: 100%;
-  height: 90vw;
-  position: absolute;
+  height: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   top: 15%;
   background-color: white;
   border-radius: var(--border-radius-3);
-  animation: modalAnimation 500ms alternate;
+  animation: modalAnimation 800ms alternate;
 }
 
 @keyframes modalAnimation {
@@ -74,22 +74,13 @@
   font-size: var(--font-size-7);
 }
 
+.form-general button{
+  margin-top: 10px;
+}
+
 .form-general input::placeholder{
   color: var(--color-purple);
 }
-
-/* .form-general button{
-  margin-top: 10px;
-  border-radius: var(--border-radius-3);
-  background-color: var(--color-brand);
-  color: var(--color-white);
-  font-size: var(--font-size-6);
-  padding: 10px 0;
-} */
-
-/* .form-general button:hover{
-  cursor: pointer;
-} */
 
 .form-general input{
   border: 1px solid var(--color-purple);
@@ -108,4 +99,25 @@
 .link:hover{
   cursor: pointer;
   color: var(--color-purple);
+}
+
+@media (max-width:1000px) {
+  .modal-bg{
+    height: 100%;
+  }
+
+  .modal{
+    width: 100%;
+    bottom: 10%;
+    top: 8%;
+  }
+
+  
+}
+
+@media (max-width:600px){
+  .form-general{
+    width: 90%;
+  }
+
 }

@@ -15,16 +15,20 @@ menuIcon.addEventListener("click", () => {
 });
 
 function redirectButtons() {
-  const home = document.querySelector(".button-white");
-  const logout = document.querySelector(".button-brand");
+  const home = [...document.querySelectorAll(".button1")];
+  const logout = [...document.querySelectorAll(".button2")];
 
-  home.addEventListener("click", () => {
-    window.location.replace("/");
+  home.forEach((element) => {
+    element.addEventListener("click", () => {
+      window.location.replace("/");
+    });
   });
 
-  logout.addEventListener("click", () => {
-    localStorage.clear();
-    window.location.replace("/");
+  logout.forEach((element) => {
+    element.addEventListener("click", () => {
+      localStorage.clear()
+      window.location.replace("/");
+    });
   });
 }
 
@@ -32,7 +36,8 @@ async function getApi() {
   const localData = JSON.parse(localStorage.getItem("token"));
   const readMyPets = await readAllMyPets(localData);
   readMyPets.forEach((element) => {
-    creatCards(element.name, element.species, element.avatar_url);
+    // console.log(element.id);
+    creatCards(element.name, element.species, element.avatar_url, element.id);
   });
 }
 

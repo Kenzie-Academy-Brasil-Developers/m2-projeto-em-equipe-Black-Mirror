@@ -1,66 +1,58 @@
 import { btnChange } from "../../scripts/btnChange.js";
 import { modalBg } from "../../scripts/modal.js";
 import { renderCard } from "../../scripts/renderCardHome.js";
-import {creatUser, loginUser} from "../../scripts/requests.js"
+import { creatUser, loginUser } from "../../scripts/requests.js";
 import { toast } from "../../scripts/toastfy.js";
 
+const menuIcon = document.querySelector("#menuIcon");
+const headerBtnsMobile = document.querySelector("#headerBtnsMobile");
+menuIcon.addEventListener("click", () =>
+  headerBtnsMobile.classList.toggle("hide")
+);
 
-const menuIcon = document.querySelector('#menuIcon')
-const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
-menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
-
-
-
-btnChange()
+const token = JSON.parse(localStorage.getItem("token"));
 
 async function loginEvent(email, pass) {
-    
-  const user = await loginUser(email,pass)
-  let token  = user.token
+  const user = await loginUser(email, pass);
+  let token = user.token;
   const body = {
     name: user.user.name,
     email: user.user.email,
     avatar_url: user.user.avatar_url,
-  }
+  };
 
-  const toastfy = toast("sucess", "Login Feito com Sucesso")
-  const main = document.querySelector("main")
-  const section = document.querySelector(".modal-bg")
+  const toastfy = toast("sucess", "Login Feito com Sucesso");
+  const main = document.querySelector("main");
+  const section = document.querySelector(".modal-bg");
 
-  main.append(toastfy)
-  toastfy.showModal()
-  localStorage.setItem("token" , JSON.stringify(token))
-  localStorage.setItem("user" , JSON.stringify(body))
+  main.append(toastfy);
+  toastfy.showModal();
+  localStorage.setItem("token", JSON.stringify(token));
+  localStorage.setItem("user", JSON.stringify(body));
   setTimeout(() => {
-    window.location.reload()
-  },3000)
-
+    window.location.reload();
+  }, 3000);
 }
 
-
 function modRender() {
-  const register = document.querySelector(".button-white");
+  const register = [...document.querySelectorAll(".button1")];
 
-  if(register.innerText === "Register"){
-
-    register.addEventListener("click", () => {
-      modalBg(modalRegister());
-    });
-
-  }
-
-  const login = document.querySelector(".button-brand");
-
-  if(login.innerText === "Login"){
-
-    login.addEventListener("click", () => {
-    modalBg(modalLogin());
+  register.forEach((element) => {
+    if (!token) {
+      element.addEventListener("click", () => {
+        modalBg(modalRegister());
+      });
+    }
   });
 
+  const login = [...document.querySelectorAll(".button2")];
+  login.forEach((element) => {
+  if (!token) {
+    element.addEventListener("click", () => {
+      modalBg(modalLogin());
+    });
   }
-  
-
-  
+  });
 }
 
 export function modalLogin() {
@@ -96,8 +88,8 @@ export function modalLogin() {
   p2.innerText = ` para se cadastrar`;
 
   p.innerText = "Não tem cadastro? ";
-  
-  p.append(link,p2);
+
+  p.append(link, p2);
   form.append(title, email, password, login, p);
 
   link.addEventListener("click", () => {
@@ -110,13 +102,11 @@ export function modalLogin() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (email.value !== "" && password.value !== "") {
+      let emailReq = email.value;
+      let passwordReq = password.value;
 
-      let emailReq = email.value
-      let passwordReq = password.value
-     
-      loginEvent(emailReq,passwordReq);
-
-    } 
+      loginEvent(emailReq, passwordReq);
+    }
   });
 
   return form;
@@ -169,27 +159,23 @@ function modalRegister() {
   const p = document.createElement("p");
 
   p.innerText = "Já tem cadastro? ";
-  p.append(link,p2);
+  p.append(link, p2);
   form.append(title, userName, email, password, userAvatar, register, p);
 
-
-  form.addEventListener("submit",  async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (userName.value !== "" && email.value !== "" && password.value !== "") {
-        let name = userName.value
-        let emailReq = email.value
-        let passwordReq = password.value
-        let avatarUrl = userAvatar.value
+      let name = userName.value;
+      let emailReq = email.value;
+      let passwordReq = password.value;
+      let avatarUrl = userAvatar.value;
 
-        await creatUser(name, emailReq, passwordReq, avatarUrl)
-
+      await creatUser(name, emailReq, passwordReq, avatarUrl);
     }
   });
 
   return form;
 }
-
-
 
 function alterateUserData() {
   const form = document.createElement("form");
@@ -229,29 +215,6 @@ function alterateUserData() {
   return form;
 }
 
-
-
-function alteratePetData() {
-  const form = document.createElement("form");
-  form.classList = "flex column form-general";
-
-  const title = document.createElement("h2");
-  title.innerText = "Atualizar pet";
-  title.classList = "flex align-center justify-center";
-
-  const newPetAvatar = document.createElement("input");
-  newPetAvatar.name = "name";
-  newPetAvatar.placeholder = "Avatar";
-
-  const registerPet = document.createElement("button");
-  registerPet.classList = "text-center button-brand";
-  registerPet.innerText = "Atualizar";
-  registerPet.type = "submit";
-
-  form.append(title, newPetAvatar, registerPet)
-  return form
-}
-
-
-renderCard()
-modRender()
+renderCard();
+modRender();
+btnChange();

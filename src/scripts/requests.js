@@ -98,7 +98,7 @@ async function updateProfile(avatarUrl, name, token){
             method: 'PATCH',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token.token}`
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(data)
         }
@@ -119,7 +119,7 @@ async function deleteProfile(token){
             method: 'DELETE',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token.token}`
+                Authorization: `Bearer ${token}`
             }
         })
 
@@ -144,7 +144,7 @@ async function creatPet(name, bread, species, avatarUrl, token){
             method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token.token}`
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(data)
         }

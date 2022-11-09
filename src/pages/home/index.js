@@ -209,33 +209,7 @@ function modalRegister() {
   return form;
 }
 
-function modalDeleteAcc() {
-  const section = document.createElement("section");
-  section.classList = "flex column form-general";
 
-  const title = document.createElement("h2");
-  title.innerText = "Deseja mesmo deletar sua conta?";
-  title.classList = "text-center";
-
-  const cancel = document.createElement("button");
-  cancel.classList = "text-center button-brand";
-  cancel.innerText = "Não desejo deletar minha conta";
-  cancel.type = "button";
-  cancel.addEventListener("click", (e) => {
-    document.querySelector(".modal-bg").remove();
-  });
-
-  const deleteAcc = document.createElement("button");
-  deleteAcc.classList = "button-white"
-  deleteAcc.innerText = "Quero deletar minha conta";
-  deleteAcc.addEventListener("click", () => {
-    // requisição
-  });
-
-  section.append(title, cancel, deleteAcc);
-
-  return section;
-}
 
 function alterateUserData() {
   const form = document.createElement("form");
@@ -275,58 +249,7 @@ function alterateUserData() {
   return form;
 }
 
-function registerNewPet() {
-  const form = document.createElement("form");
-  form.classList = "flex column form-general";
 
-  const title = document.createElement("h2");
-  title.innerText = "Cadastrar pet";
-  title.classList = "flex align-center justify-center";
-
-  const petName = document.createElement("input");
-  petName.name = "name";
-  petName.placeholder = "Nome";
-
-  const breed = document.createElement("select");
-  breed.name = "breed";
-  breed.classList = "select-breed"
-  breed.placeholder = "Raça";
-
-  const option0 = document.createElement("option")
-  option0.innerText = "Selecione a espécie"
-  option0.selected;
-  option0.disabled;
-
-  const option1 = document.createElement("option")
-  option1.innerText = "Cachorro"
-
-  const option2 = document.createElement("option")
-  option2.innerText = "Gato"
-
-  const option3 = document.createElement("option")
-  option3.innerText = "Repteis"
-
-
-  const option4 = document.createElement("option")
-  option4.innerText = "Outros"
-
-  breed.append(option0, option1, option2, option3, option4)
-
-  const petAvatar = document.createElement("input");
-  petAvatar.name = "avatar";
-  petAvatar.placeholder = "Avatar";
-
-  const registerPet = document.createElement("button");
-  registerPet.classList = "text-center button-brand";
-  registerPet.innerText = "Cadastrar";
-  registerPet.type = "submit";
-
-  form.append(title, petName, breed, registerPet);
-
-  form.addEventListener("submit", () => {});
-
-  return form;
-}
 
 function alteratePetData() {
   const form = document.createElement("form");

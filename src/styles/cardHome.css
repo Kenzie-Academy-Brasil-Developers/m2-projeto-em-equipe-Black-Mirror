@@ -3,7 +3,8 @@
     gap: 65px;
     justify-content: center;
     align-items: center;
-    margin-top: 25px;
+    margin-top: 30px;
+    margin-bottom: 80px;
   }
 
   .card{
@@ -21,14 +22,12 @@
        display: flex;
        justify-content: center;
        align-items: center;
+       border-radius: 8px 8px 0 0;
   }
 
   .card-img{
       height: 330px;
-      border-top-left-radius: var(--border-radius-1);
-      border-top-right-radius: var(--border-radius-1);
-      border-bottom-left-radius: var(--border-radius-1);
-      border-bottom-right-radius:var(--border-radius-1) ;
+      
   }
 
   .card-title{

@@ -6,7 +6,7 @@ function creatCards(name, species, img, id) {
 
   let liList = document.createElement("li");
   liList.id = id
-  liList.classList.add("li-petsList-profile", "flex", "align-center");
+  liList.classList.add("li-petsList-profile");
 
   let figure = document.createElement("figure");
   figure.classList.add("figure-profile");
@@ -16,7 +16,7 @@ function creatCards(name, species, img, id) {
   imgList.src = `${img}`;
 
   let divDescription = document.createElement("div");
-  divDescription.classList.add("box-description-petsList", "flex", "column");
+  divDescription.classList.add("box-description-petsList");
 
   let spanName = document.createElement("span");
   spanName.classList.add("span-description-petsList");

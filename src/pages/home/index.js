@@ -62,7 +62,7 @@ async function loginEvent(email, pass) {
   localStorage.setItem("user" , JSON.stringify(body))
   setTimeout(() => {
     window.location.reload()
-  },2000)
+  },3000)
 
 }
 

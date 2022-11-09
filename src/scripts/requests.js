@@ -36,7 +36,7 @@ async function creatUser(name, email, password, avatarUrl){
             modalBg(modalLogin())
             setTimeout(() => {
                 toastfy.remove()
-            },2500)
+            },3000)
             return response
             
         }else {
@@ -48,7 +48,7 @@ async function creatUser(name, email, password, avatarUrl){
 
            setTimeout(() => {
             toastfy.close()
-           },2500)
+           },3000)
         }
 
     } catch(error){
@@ -88,7 +88,7 @@ async function loginUser(email, password){
      
             setTimeout(() => {
                 toastfy.remove()
-            },2500)
+            },3000)
             
             return response
             
@@ -326,7 +326,7 @@ async function creatAdoption(petId, token){
             console.log(response)
             setTimeout(() => {
                 toastfy.remove()
-            },2500)
+            },3000)
             return response
 
 
@@ -339,7 +339,7 @@ async function creatAdoption(petId, token){
  
             setTimeout(() => {
              toastfy.remove()
-            },1200)
+            },3000)
 
         }
         

@@ -1,3 +1,4 @@
+import { btnChange } from "../../scripts/btnChange.js";
 import { modalBg } from "../../scripts/modal.js";
 import { renderCard } from "../../scripts/renderCardHome.js";
 import {creatUser, loginUser} from "../../scripts/requests.js"
@@ -8,37 +9,7 @@ const menuIcon = document.querySelector('#menuIcon')
 const headerBtnsMobile = document.querySelector('#headerBtnsMobile')
 menuIcon.addEventListener('click', ()=> headerBtnsMobile.classList.toggle('hide'))
 
-const tokenStorage = JSON.parse(localStorage.getItem("token"))
 
-function btnChange() {
-
-  const btnLogin = document.querySelector(".button-white")
-  const btnRegister = document.querySelector(".button-brand")
-
-  if(tokenStorage !== null){
-     
-    btnLogin.innerText = "Perfil"
-    btnRegister.innerText = "Logout"
-
-    if(btnLogin.innerText === "Perfil"){
-       
-      btnLogin.onclick = () => {
-        window.location.replace("../profile/index.html")
-      }
-    }
-    if(btnRegister.innerText === "Logout"){
-
-      btnRegister.onclick = () => {
-
-        localStorage.removeItem("token")
-        localStorage.removeItem("user")
-
-        window.location.reload()
-      }
-    }
-  }
-   
-}
 
 btnChange()
 

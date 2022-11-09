@@ -1,5 +1,3 @@
-import { modalLogin } from "../pages/home/index.js"
-import { modalBg } from "./modal.js"
 import { toast } from "./toastfy.js"
 
 async function creatUser(name, email, password, avatarUrl){
@@ -33,7 +31,6 @@ async function creatUser(name, email, password, avatarUrl){
 
             console.log(response)
             section.remove()
-            modalBg(modalLogin())
             setTimeout(() => {
                 toastfy.remove()
             },3000)

@@ -1,3 +1,5 @@
+import { modalBg } from "./modal.js"
+import { modalLogin } from "./modalLogin.js"
 import { toast } from "./toastfy.js"
 
 async function creatUser(name, email, password, avatarUrl){
@@ -29,23 +31,43 @@ async function creatUser(name, email, password, avatarUrl){
             main.append(toastfy)
             toastfy.showModal()
 
-            console.log(response)
+           
             section.remove()
             setTimeout(() => {
                 toastfy.remove()
+                section.remove()
+                modalBg(modalLogin())
             },3000)
             return response
             
-        }else {
-           const toastfy = toast("failure", response.message)
+        }else {    
            const main = document.querySelector("main")
            
-           main.append(toastfy)
+          
+
+        if(response.message == "please inform a valid image link"){
+
+            const toastfy = toast("failure", "Informe uma Imagem válida")
+
+             main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.close()
+               },3000)
+
+        }else if(response.message == "Email already in use"){
+
+            const toastfy = toast("failure", "Email já esta em uso")
+
+            main.append(toastfy)
            toastfy.showModal()
 
            setTimeout(() => {
             toastfy.close()
            },3000)
+        }     
+           
         }
 
     } catch(error){
@@ -77,18 +99,34 @@ async function loginUser(email, password){
 
         }else {
             
-            const toastfy = toast("failure", response.message)
+           
             const main = document.querySelector("main")
                 
-            main.append(toastfy)
-            toastfy.showModal()
-     
+
+            if(response.message == "Please verify the informed password and try again"){
+
+                const toastfy = toast("failure", "Senha incorreta")
+                main.append(toastfy)
+                toastfy.showModal()
+                
+                setTimeout(() => {
+                    toastfy.remove()
+                },3000)
+
+            }else if(response.message == "Email not found"){
+
+                const toastfy = toast("failure", "Email não cadastrado")
+                main.append(toastfy)
+                toastfy.showModal()
+                 
             setTimeout(() => {
                 toastfy.remove()
             },3000)
-            
+
+           }
+           
             return response
-            
+           
 
         }
         
@@ -155,8 +193,40 @@ async function updateProfile(avatarUrl, name, token){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/users/profile", options)
         const response = await responseJson.json()
-        return response
 
+        if(!response.message){
+
+            const toastfy = toast("sucess", "Perfil Atualizado com Sucesso")
+            const main = document.querySelector("main")
+            const section = document.querySelector(".modal-bg")
+
+            main.append(toastfy)
+            toastfy.showModal()
+
+            
+            setTimeout(() => {
+                toastfy.remove()
+                section.remove()
+                modalBg(modalLogin())
+            },3000)
+            return response
+            
+        }else {    
+           const main = document.querySelector("main")
+           
+
+        if(response.message == "please inform a valid image link"){
+
+            const toastfy = toast("failure", "Informe uma Imagem válida")
+
+             main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.close()
+               },3000)
+            }
+        }
     } catch(error){
         return error
     }
@@ -174,7 +244,7 @@ async function deleteProfile(token){
         })
 
         const response = await dataJson.json()
-        console.log(response)
+
         return response
 
     } catch(error){
@@ -202,7 +272,38 @@ async function creatPet(name, bread, species, avatarUrl, token){
 
         const responseJson = await fetch("https://m2-api-adot-pet.herokuapp.com/pets", options)
         const response = await responseJson.json()
-        return response
+        if(!response.message){
+
+            const toastfy = toast("sucess", "Pet Criado com Sucesso")
+            const main = document.querySelector("main")
+            const section = document.querySelector(".modal-bg")
+
+            main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.remove()
+                section.remove()
+                modalBg(modalLogin())
+            },3000)
+            return response
+            
+        }else {    
+           const main = document.querySelector("main")
+           
+
+        if(response.message == "please inform a valid image link"){
+
+            const toastfy = toast("failure", "Informe uma Imagem válida")
+
+             main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.close()
+               },3000)
+            }
+        }
 
     } catch(error){
         return error
@@ -268,7 +369,39 @@ async function updatePetById(name, bread, species, avatarUrl, id, token){
 
         const responseJson = await fetch(`https://m2-api-adot-pet.herokuapp.com/pets/${id}`, options)
         const response = await responseJson.json()
-        return response
+        
+        if(!response.message){
+
+            const toastfy = toast("sucess", "Pet Atualizado com Sucesso")
+            const main = document.querySelector("main")
+            const section = document.querySelector(".modal-bg")
+
+            main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.remove()
+                section.remove()
+                modalBg(modalLogin())
+            },3000)
+            return response
+            
+        }else {    
+           const main = document.querySelector("main")
+           
+
+        if(response.message == "please inform a valid image link"){
+
+            const toastfy = toast("failure", "Informe uma Imagem válida")
+
+             main.append(toastfy)
+            toastfy.showModal()
+
+            setTimeout(() => {
+                toastfy.close()
+               },3000)
+            }
+        }
 
     } catch(error){
         return error
@@ -321,7 +454,7 @@ async function creatAdoption(petId, token){
             main.append(toastfy)
             toastfy.showModal()
 
-            console.log(response)
+            
             setTimeout(() => {
                 toastfy.remove()
             },3000)
@@ -329,16 +462,18 @@ async function creatAdoption(petId, token){
 
 
         }else {
-            const toastfy = toast("failure", response.message)
-            const main = document.querySelector("main")
-            
-            main.append(toastfy)
-            toastfy.showModal()
- 
-            setTimeout(() => {
-             toastfy.remove()
-            },3000)
 
+            if(response.message == "Pet already be adopt, please chose another one"){
+
+                const main = document.querySelector("main")
+                const toastfy = toast("failure", "Animal já adotado, escolha outro")
+                main.append(toastfy)
+                toastfy.showModal()
+                 
+            setTimeout(() => {
+                toastfy.remove()
+            },3000)
+        }
         }
         
 

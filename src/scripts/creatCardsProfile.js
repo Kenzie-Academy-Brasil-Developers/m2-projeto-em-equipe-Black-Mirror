@@ -31,7 +31,7 @@ function creatCards(name, species, img, id) {
   buttonUpdate.id = "button-brand";
   buttonUpdate.innerHTML = "Atualizar";
   buttonUpdate.addEventListener("click", () => {
-    console.log(id);
+  
     modalBg(updatePetData(id));
     
   });
@@ -98,14 +98,16 @@ function updatePetData(id) {
     let breadReq = "SRD" 
     let breedReq = breed.value
     let petId = id
-    console.log(breedReq);
     
     if (newPetNameReq !== "" && newPetAvatarReq !== "" && breedReq !== "Selecione a espécie") {
         
         await updatePetById(newPetNameReq, breadReq, breedReq, newPetAvatarReq,petId, token)
 
         if (!updatePetById.message) {
+           
+          setTimeout(() => {
             window.location.reload()
+          },2900)
         }
         
     }

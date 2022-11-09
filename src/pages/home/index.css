@@ -5,7 +5,7 @@ header{
     border-bottom: solid 1px #EEEEEE;
 }
 #headerMenu{
-    width:80% ;
+    width:100% ;
 }
 #logo{
     color: var(--color-brand);

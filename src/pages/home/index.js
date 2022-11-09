@@ -251,26 +251,7 @@ function alterateUserData() {
 
 
 
-function alteratePetData() {
-  const form = document.createElement("form");
-  form.classList = "flex column form-general";
 
-  const title = document.createElement("h2");
-  title.innerText = "Atualizar pet";
-  title.classList = "flex align-center justify-center";
-
-  const newPetAvatar = document.createElement("input");
-  newPetAvatar.name = "name";
-  newPetAvatar.placeholder = "Avatar";
-
-  const registerPet = document.createElement("button");
-  registerPet.classList = "text-center button-brand";
-  registerPet.innerText = "Atualizar";
-  registerPet.type = "submit";
-
-  form.append(title, newPetAvatar, registerPet)
-  return form
-}
 
 
 renderCard()

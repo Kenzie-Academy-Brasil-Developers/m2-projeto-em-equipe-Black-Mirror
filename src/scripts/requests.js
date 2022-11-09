@@ -212,7 +212,7 @@ async function updatePetById(name, bread, species, avatarUrl, id, token){
             method: 'PATCH',
             headers: {
                 'Content-Type':'application/json',
-                Authorization: `Bearer ${token.token}`
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(data)
         }

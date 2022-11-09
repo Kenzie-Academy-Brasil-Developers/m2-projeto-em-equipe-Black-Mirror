@@ -32,7 +32,8 @@ async function getApi() {
   const localData = JSON.parse(localStorage.getItem("token"));
   const readMyPets = await readAllMyPets(localData);
   readMyPets.forEach((element) => {
-    creatCards(element.name, element.species, element.avatar_url);
+    // console.log(element.id);
+    creatCards(element.name, element.species, element.avatar_url, element.id);
   });
 }
 
